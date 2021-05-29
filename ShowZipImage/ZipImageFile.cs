@@ -21,7 +21,7 @@ namespace ShowZipImage
             using(ZipArchive archive = ZipFile.OpenRead(FileName)) 
             {
                 foreach(ZipArchiveEntry entry in archive.Entries) {
-                    if(entry.Name != "") {
+                    if(CheckFileType.IsImage(entry.Name)) {
                         FileNameList.Add(entry.FullName);
                     }
                 }

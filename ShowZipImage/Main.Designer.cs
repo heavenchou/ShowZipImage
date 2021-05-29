@@ -28,12 +28,12 @@ namespace ShowZipImage
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btShow = new System.Windows.Forms.Button();
-            this.tbZipFileName = new System.Windows.Forms.TextBox();
-            this.lbZipImageFileName = new System.Windows.Forms.ListBox();
+            this.lbImageFileName = new System.Windows.Forms.ListBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tbOpenFile = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -44,81 +44,85 @@ namespace ShowZipImage
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.cbShowRate = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.panelListBox = new System.Windows.Forms.Panel();
+            this.panelFilter = new System.Windows.Forms.Panel();
+            this.btUpDir = new System.Windows.Forms.Button();
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.slbImageSize = new System.Windows.Forms.ToolStripStatusLabel();
             this.slbImageRate = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tbFilter = new System.Windows.Forms.TextBox();
+            this.btClearFilterText = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panelTop.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.panelListBox.SuspendLayout();
+            this.panelFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.panelCenter.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btShow
+            // lbImageFileName
             // 
-            this.btShow.Location = new System.Drawing.Point(559, 58);
-            this.btShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btShow.Name = "btShow";
-            this.btShow.Size = new System.Drawing.Size(87, 34);
-            this.btShow.TabIndex = 0;
-            this.btShow.Text = "秀圖";
-            this.btShow.UseVisualStyleBackColor = true;
-            this.btShow.Click += new System.EventHandler(this.btShow_Click);
-            // 
-            // tbZipFileName
-            // 
-            this.tbZipFileName.Location = new System.Drawing.Point(13, 58);
-            this.tbZipFileName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tbZipFileName.Name = "tbZipFileName";
-            this.tbZipFileName.Size = new System.Drawing.Size(538, 34);
-            this.tbZipFileName.TabIndex = 2;
-            this.tbZipFileName.Text = "Image.zip";
-            // 
-            // lbZipImageFileName
-            // 
-            this.lbZipImageFileName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbZipImageFileName.FormattingEnabled = true;
-            this.lbZipImageFileName.ItemHeight = 25;
-            this.lbZipImageFileName.Location = new System.Drawing.Point(0, 0);
-            this.lbZipImageFileName.Name = "lbZipImageFileName";
-            this.lbZipImageFileName.Size = new System.Drawing.Size(290, 317);
-            this.lbZipImageFileName.TabIndex = 3;
-            this.lbZipImageFileName.SelectedIndexChanged += new System.EventHandler(this.lbZipImageFileName_SelectedIndexChanged);
+            this.lbImageFileName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbImageFileName.FormattingEnabled = true;
+            this.lbImageFileName.ItemHeight = 25;
+            this.lbImageFileName.Location = new System.Drawing.Point(0, 0);
+            this.lbImageFileName.Name = "lbImageFileName";
+            this.lbImageFileName.Size = new System.Drawing.Size(290, 315);
+            this.lbImageFileName.TabIndex = 3;
+            this.lbImageFileName.SelectedIndexChanged += new System.EventHandler(this.lbImageFileName_SelectedIndexChanged);
+            this.lbImageFileName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbImageFileName_KeyDown);
+            this.lbImageFileName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbImageFileName_MouseDoubleClick);
             // 
             // panelTop
             // 
             this.panelTop.Controls.Add(this.toolStrip1);
-            this.panelTop.Controls.Add(this.tbZipFileName);
-            this.panelTop.Controls.Add(this.btShow);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(873, 99);
+            this.panelTop.Size = new System.Drawing.Size(873, 54);
             this.panelTop.TabIndex = 6;
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tbOpenFile,
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
-            this.ddbImageInitial,
             this.toolStripSeparator1,
-            this.cbShowRate});
+            this.cbShowRate,
+            this.ddbImageInitial});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(873, 53);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tbOpenFile
+            // 
+            this.tbOpenFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("tbOpenFile.Image")));
+            this.tbOpenFile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tbOpenFile.Name = "tbOpenFile";
+            this.tbOpenFile.Size = new System.Drawing.Size(29, 50);
+            this.tbOpenFile.Text = "開啟圖檔";
+            this.tbOpenFile.Click += new System.EventHandler(this.tbOpenFile_Click);
             // 
             // toolStripButton1
             // 
@@ -129,7 +133,7 @@ namespace ShowZipImage
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(50, 50);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Text = "放大";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton2
@@ -141,7 +145,7 @@ namespace ShowZipImage
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(50, 50);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Text = "縮小";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
@@ -153,7 +157,7 @@ namespace ShowZipImage
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(50, 50);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Text = "原始大小";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // ddbImageInitial
@@ -167,7 +171,7 @@ namespace ShowZipImage
             this.ddbImageInitial.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ddbImageInitial.Name = "ddbImageInitial";
             this.ddbImageInitial.Size = new System.Drawing.Size(34, 50);
-            this.ddbImageInitial.Text = "toolStripDropDownButton1";
+            this.ddbImageInitial.Text = "設定開啟圖檔比例";
             this.ddbImageInitial.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.ddbImageInitial_DropDownItemClicked);
             // 
             // aToolStripMenuItem1
@@ -175,21 +179,21 @@ namespace ShowZipImage
             this.aToolStripMenuItem1.Checked = true;
             this.aToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.aToolStripMenuItem1.Name = "aToolStripMenuItem1";
-            this.aToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.aToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.aToolStripMenuItem1.Text = "原始大小";
             this.aToolStripMenuItem1.Click += new System.EventHandler(this.aToolStripMenuItem1_Click);
             // 
             // bToolStripMenuItem1
             // 
             this.bToolStripMenuItem1.Name = "bToolStripMenuItem1";
-            this.bToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.bToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.bToolStripMenuItem1.Text = "適當全圖";
             this.bToolStripMenuItem1.Click += new System.EventHandler(this.bToolStripMenuItem1_Click);
             // 
             // cToolStripMenuItem1
             // 
             this.cToolStripMenuItem1.Name = "cToolStripMenuItem1";
-            this.cToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.cToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.cToolStripMenuItem1.Text = "目前比例";
             this.cToolStripMenuItem1.Click += new System.EventHandler(this.cToolStripMenuItem1_Click);
             // 
@@ -214,6 +218,7 @@ namespace ShowZipImage
             "10%"});
             this.cbShowRate.Name = "cbShowRate";
             this.cbShowRate.Size = new System.Drawing.Size(121, 53);
+            this.cbShowRate.ToolTipText = "縮放比例";
             this.cbShowRate.SelectedIndexChanged += new System.EventHandler(this.cbShowRate_SelectedIndexChanged);
             // 
             // splitContainer
@@ -226,15 +231,46 @@ namespace ShowZipImage
             // 
             // splitContainer.Panel1
             // 
-            this.splitContainer.Panel1.Controls.Add(this.lbZipImageFileName);
+            this.splitContainer.Panel1.Controls.Add(this.panelListBox);
+            this.splitContainer.Panel1.Controls.Add(this.panelFilter);
             // 
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.AutoScroll = true;
             this.splitContainer.Panel2.Controls.Add(this.pbImage);
-            this.splitContainer.Size = new System.Drawing.Size(873, 317);
+            this.splitContainer.Size = new System.Drawing.Size(873, 362);
             this.splitContainer.SplitterDistance = global::ShowZipImage.Properties.Settings.Default.SplitDistance;
             this.splitContainer.TabIndex = 7;
+            // 
+            // panelListBox
+            // 
+            this.panelListBox.Controls.Add(this.lbImageFileName);
+            this.panelListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelListBox.Location = new System.Drawing.Point(0, 47);
+            this.panelListBox.Name = "panelListBox";
+            this.panelListBox.Size = new System.Drawing.Size(290, 315);
+            this.panelListBox.TabIndex = 5;
+            // 
+            // panelFilter
+            // 
+            this.panelFilter.Controls.Add(this.panel2);
+            this.panelFilter.Controls.Add(this.panel1);
+            this.panelFilter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFilter.Location = new System.Drawing.Point(0, 0);
+            this.panelFilter.Name = "panelFilter";
+            this.panelFilter.Size = new System.Drawing.Size(290, 47);
+            this.panelFilter.TabIndex = 4;
+            // 
+            // btUpDir
+            // 
+            this.btUpDir.Location = new System.Drawing.Point(3, 7);
+            this.btUpDir.Name = "btUpDir";
+            this.btUpDir.Size = new System.Drawing.Size(32, 34);
+            this.btUpDir.TabIndex = 0;
+            this.btUpDir.Text = "..";
+            this.toolTip1.SetToolTip(this.btUpDir, "回上層目錄");
+            this.btUpDir.UseVisualStyleBackColor = true;
+            this.btUpDir.Click += new System.EventHandler(this.btUpDir_Click);
             // 
             // pbImage
             // 
@@ -287,10 +323,50 @@ namespace ShowZipImage
             // 
             this.panelCenter.Controls.Add(this.splitContainer);
             this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 99);
+            this.panelCenter.Location = new System.Drawing.Point(0, 54);
             this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(873, 317);
+            this.panelCenter.Size = new System.Drawing.Size(873, 362);
             this.panelCenter.TabIndex = 10;
+            // 
+            // tbFilter
+            // 
+            this.tbFilter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbFilter.Location = new System.Drawing.Point(0, 7);
+            this.tbFilter.Name = "tbFilter";
+            this.tbFilter.Size = new System.Drawing.Size(211, 34);
+            this.tbFilter.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.tbFilter, "過濾檔名");
+            this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
+            // 
+            // btClearFilterText
+            // 
+            this.btClearFilterText.Location = new System.Drawing.Point(41, 6);
+            this.btClearFilterText.Name = "btClearFilterText";
+            this.btClearFilterText.Size = new System.Drawing.Size(33, 35);
+            this.btClearFilterText.TabIndex = 2;
+            this.btClearFilterText.Text = "X";
+            this.toolTip1.SetToolTip(this.btClearFilterText, "清除右邊過濾輸入欄位");
+            this.btClearFilterText.UseVisualStyleBackColor = true;
+            this.btClearFilterText.Click += new System.EventHandler(this.btClearFilterText_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btUpDir);
+            this.panel1.Controls.Add(this.btClearFilterText);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(79, 47);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tbFilter);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(79, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(211, 41);
+            this.panel2.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -317,21 +393,23 @@ namespace ShowZipImage
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.panelListBox.ResumeLayout(false);
+            this.panelFilter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panelBottom.ResumeLayout(false);
             this.panelBottom.PerformLayout();
             this.panelCenter.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btShow;
-        private System.Windows.Forms.TextBox tbZipFileName;
-        private System.Windows.Forms.ListBox lbZipImageFileName;
+        private System.Windows.Forms.ListBox lbImageFileName;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.PictureBox pbImage;
@@ -350,6 +428,16 @@ namespace ShowZipImage
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Panel panelCenter;
+        private System.Windows.Forms.ToolStripButton tbOpenFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Panel panelListBox;
+        private System.Windows.Forms.Panel panelFilter;
+        private System.Windows.Forms.Button btUpDir;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox tbFilter;
+        private System.Windows.Forms.Button btClearFilterText;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
