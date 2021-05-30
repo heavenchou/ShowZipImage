@@ -225,6 +225,7 @@ namespace ShowZipImage
         void ProcessListBoxItem(bool IntoZipDir)
         {
             int index = lbImageFileName.SelectedIndex;
+            if(index == -1) return;
 
             // 判斷是目錄、壓縮檔或圖檔
             if(!InZip) {
@@ -255,6 +256,8 @@ namespace ShowZipImage
         private void lbImageFileName_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = lbImageFileName.SelectedIndex;
+            if(index == -1) return;
+
             string file = "";
 
             if(InZip) {
@@ -412,8 +415,12 @@ namespace ShowZipImage
 
         private void lbImageFileName_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter) {
+            if(e.KeyCode == Keys.Enter || e.KeyCode == Keys.Right) {
                 ProcessListBoxItem(true);   // 進入目錄或壓縮檔
+                e.SuppressKeyPress = true;
+            } else if(e.KeyCode == Keys.Left) {
+                btUpDir_Click(sender, null);
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -462,11 +469,53 @@ namespace ShowZipImage
                     }
                 }
             }
+            if(lbImageFileName.Items.Count > 0) {
+                lbImageFileName.SelectedIndex = 0;
+            }
         }
 
         private void btClearFilterText_Click(object sender, EventArgs e)
         {
             tbFilter.Text = "";
+        }
+
+        private void lbImageFileName_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            bool selected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
+
+            int index = e.Index;
+            if(index >= 0 && index < lbImageFileName.Items.Count) {
+                string file = lbImageFileName.Items[index].ToString();
+                Graphics g = e.Graphics;
+
+                //background:
+                SolidBrush backgroundBrush;
+                SolidBrush foregroundBrush;
+
+                if(CheckFileType.IsZip(file)) {
+                    backgroundBrush = new SolidBrush(Color.White);
+                    foregroundBrush = new SolidBrush(Color.Blue);
+                } else if(CheckFileType.IsImage(file)) {
+                    backgroundBrush = new SolidBrush(Color.White);
+                    foregroundBrush = new SolidBrush(Color.Black);
+                } else {
+                    backgroundBrush = new SolidBrush(Color.LightYellow);
+                    foregroundBrush = new SolidBrush(Color.Black);
+                    file = "[" + file + "]";
+                }
+
+                if(selected) {
+                    backgroundBrush = new SolidBrush(Color.Silver);
+                }
+
+                g.FillRectangle(backgroundBrush, e.Bounds);
+
+                //text:
+                g.DrawString(file, e.Font, foregroundBrush, lbImageFileName.GetItemRectangle(index).Location);
+            }
+
+            e.DrawFocusRectangle();
         }
     }
 }
