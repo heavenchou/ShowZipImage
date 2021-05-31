@@ -1,17 +1,18 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 組件的一般資訊是由下列的屬性集控制。
 // 變更這些屬性的值即可修改組件的相關
 // 資訊。
-[assembly: AssemblyTitle("ShowZipImage")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("CBETA Show Image (神秀圖)")]
+[assembly: AssemblyDescription("CBETA Show Image (神秀圖)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ShowZipImage")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("Copyright ©  CBETA 2021")]
+[assembly: AssemblyCompany("CBETA")]
+[assembly: AssemblyProduct("CBShowImage")]
+[assembly: AssemblyCopyright("Copyright © 2021 Heaven Chou")]
+[assembly: AssemblyTrademark("Copyright © 1998-2021 CBETA")]
 [assembly: AssemblyCulture("")]
 
 // 將 ComVisible 設為 false 可對 COM 元件隱藏
@@ -34,3 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.1.0.0")]
 [assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: NeutralResourcesLanguage("zh-TW")]

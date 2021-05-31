@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 
-namespace ShowZipImage
+namespace CBShowImage
 {
+
     public partial class MainForm : Form
     {
         string ProgramName = "神秀圖";
+        string VerString = "v0.1";
+        string DateString = "2021-06-01";
+        AboutForm aboutForm = new AboutForm();	// 宣告子視窗
         CZipImageFile ZipImageFile = new CZipImageFile();
         CImageDir ImageDir = new CImageDir();
         Image image;
@@ -30,14 +34,38 @@ namespace ShowZipImage
         {
             Orig = 0,       // 原圖
             Full = 1,       // 全圖
-            Rate = 3        // 比率
+            Rate = 2        // 比率
         }
         EImageInitialState ImageInitialState = EImageInitialState.Orig;
 
         public MainForm()
         {
             InitializeComponent();
+            aboutForm.VerString = "版本：" + VerString;
+            aboutForm.DateString = "日期：" + DateString;
             Size = Properties.Settings.Default.FormSize;
+            ImageRate = Properties.Settings.Default.ImageRate;
+            switch(Properties.Settings.Default.ImageInitialState) {
+                case 0:
+                    aToolStripMenuItem1.Checked = true;
+                    bToolStripMenuItem1.Checked = false;
+                    cToolStripMenuItem1.Checked = false;
+                    ImageInitialState = EImageInitialState.Orig;
+                    break;
+                case 1:
+                    aToolStripMenuItem1.Checked = false;
+                    bToolStripMenuItem1.Checked = true;
+                    cToolStripMenuItem1.Checked = false;
+                    ImageInitialState = EImageInitialState.Full;
+                    break;
+                case 2:
+                    aToolStripMenuItem1.Checked = false;
+                    bToolStripMenuItem1.Checked = false;
+                    cToolStripMenuItem1.Checked = true;
+                    ImageInitialState = EImageInitialState.Rate;
+                    break;
+            }
+
             pbImage.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pbImage_MouseWheel);
             args = Environment.GetCommandLineArgs();
 
@@ -394,6 +422,8 @@ namespace ShowZipImage
         {
             // 儲存設定
             Properties.Settings.Default.FormSize = Size;
+            Properties.Settings.Default.ImageInitialState = (int)ImageInitialState;
+            Properties.Settings.Default.ImageRate = ImageRate;
             Properties.Settings.Default.Save();
         }
 
@@ -516,6 +546,11 @@ namespace ShowZipImage
             }
 
             e.DrawFocusRectangle();
+        }
+
+        private void ddbAbout_Click(object sender, EventArgs e)
+        {
+            aboutForm.ShowDialog();
         }
     }
 }

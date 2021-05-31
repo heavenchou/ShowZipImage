@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ShowZipImage.Properties {
+namespace CBShowImage.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -56,6 +56,30 @@ namespace ShowZipImage.Properties {
             }
             set {
                 this["SplitDistance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ImageInitialState {
+            get {
+                return ((int)(this["ImageInitialState"]));
+            }
+            set {
+                this["ImageInitialState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public double ImageRate {
+            get {
+                return ((double)(this["ImageRate"]));
+            }
+            set {
+                this["ImageRate"] = value;
             }
         }
     }
