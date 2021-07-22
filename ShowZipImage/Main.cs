@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+//using FreeImageAPI;
 
 namespace CBShowImage
 {
@@ -15,8 +16,8 @@ namespace CBShowImage
     public partial class MainForm : Form
     {
         string ProgramName = "神秀圖";
-        string VerString = "v0.1";
-        string DateString = "2021-06-01";
+        string VerString = "v0.2";
+        string DateString = "2021-07-23";
         AboutForm aboutForm = new AboutForm();	// 宣告子視窗
         CZipImageFile ZipImageFile = new CZipImageFile();
         CImageDir ImageDir = new CImageDir();
@@ -177,6 +178,21 @@ namespace CBShowImage
             } else {
                 string filename = Path.Combine(ImageDir.DirName, fullname);
                 image = new Bitmap(filename);
+
+                /*
+                // FreeImage 的用法
+                
+                FIBITMAP dib = FreeImage.LoadEx(filename);
+                if(dib.IsNull) {
+                    MessageBox.Show("Loading bitmap failed", "Error");
+                    return;
+                }
+                image = FreeImage.GetBitmap(dib);
+                if(image == null) {
+                    MessageBox.Show("Converting bitmap failed.", "Error");
+                    return;
+                }
+                */
             }
 
             ImageWidth = image.Width;
@@ -430,7 +446,7 @@ namespace CBShowImage
         // 開啟圖檔或壓縮檔
         private void tbOpenFile_Click(object sender, EventArgs e)
         {
-            openFileDialog.Filter = "圖檔和壓縮檔|*.jpg;*.tif;*.gif;*.zip";
+            openFileDialog.Filter = "圖檔和壓縮檔|*.bmp;*.gif;*.jpg;*.png;*.tif;*.zip";
             openFileDialog.ShowDialog();
             string filename = openFileDialog.FileName.ToString();
             if(filename.EndsWith(".zip", true, null)) {
@@ -519,7 +535,6 @@ namespace CBShowImage
                 string file = lbImageFileName.Items[index].ToString();
                 Graphics g = e.Graphics;
 
-                //background:
                 SolidBrush backgroundBrush;
                 SolidBrush foregroundBrush;
 
@@ -552,5 +567,18 @@ namespace CBShowImage
         {
             aboutForm.ShowDialog();
         }
+
+        // 計算左邊檔名列表寬度，以計算捲軸空間
+        private void lbImageFileName_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            string sItemString = lbImageFileName.Items[e.Index].ToString();
+            Graphics gItemGraphic = lbImageFileName.CreateGraphics();
+            SizeF szItemSize = gItemGraphic.MeasureString(sItemString, lbImageFileName.Font);
+            if(lbImageFileName.HorizontalExtent < szItemSize.Width) {
+                lbImageFileName.HorizontalExtent = (int)szItemSize.Width;
+            }
+            e.ItemHeight = (int)szItemSize.Height;
+        }
+
     }
 }

@@ -25,6 +25,10 @@ namespace CBShowImage
                 return true;
             } else if(file.EndsWith(".jpg", true, null)) {
                 return true;
+            } else if(file.EndsWith(".png", true, null)) {
+                return true;
+            } else if(file.EndsWith(".bmp", true, null)) {
+                return true;
             } else if(file.EndsWith(".tif", true, null)) {
                 return true;
             } else {

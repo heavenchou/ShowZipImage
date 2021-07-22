@@ -17,13 +17,14 @@ namespace CBShowImage
         {
             FileNameList.Clear();
             string[] files = Directory.GetDirectories(DirName);
-
+            Array.Sort(files);
             foreach(string file in files) {
                 string dir = Path.GetFileName(file);
                 FileNameList.Add(dir);
             }
 
             files = Directory.GetFiles(DirName);
+            Array.Sort(files);
             foreach(string f in files) {
                 string file = Path.GetFileName(f);
                 if(CheckFileType.IsImage(file) || CheckFileType.IsZip(file)) {

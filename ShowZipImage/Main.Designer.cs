@@ -83,14 +83,16 @@ namespace CBShowImage
             // lbImageFileName
             // 
             this.lbImageFileName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbImageFileName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.lbImageFileName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.lbImageFileName.FormattingEnabled = true;
+            this.lbImageFileName.HorizontalScrollbar = true;
             this.lbImageFileName.ItemHeight = 25;
             this.lbImageFileName.Location = new System.Drawing.Point(0, 0);
             this.lbImageFileName.Name = "lbImageFileName";
             this.lbImageFileName.Size = new System.Drawing.Size(290, 315);
             this.lbImageFileName.TabIndex = 0;
             this.lbImageFileName.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbImageFileName_DrawItem);
+            this.lbImageFileName.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lbImageFileName_MeasureItem);
             this.lbImageFileName.SelectedIndexChanged += new System.EventHandler(this.lbImageFileName_SelectedIndexChanged);
             this.lbImageFileName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lbImageFileName_KeyDown);
             this.lbImageFileName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbImageFileName_MouseDoubleClick);
@@ -229,21 +231,21 @@ namespace CBShowImage
             this.aToolStripMenuItem1.Checked = true;
             this.aToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.aToolStripMenuItem1.Name = "aToolStripMenuItem1";
-            this.aToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.aToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
             this.aToolStripMenuItem1.Text = "原始大小";
             this.aToolStripMenuItem1.Click += new System.EventHandler(this.aToolStripMenuItem1_Click);
             // 
             // bToolStripMenuItem1
             // 
             this.bToolStripMenuItem1.Name = "bToolStripMenuItem1";
-            this.bToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.bToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
             this.bToolStripMenuItem1.Text = "適當全圖";
             this.bToolStripMenuItem1.Click += new System.EventHandler(this.bToolStripMenuItem1_Click);
             // 
             // cToolStripMenuItem1
             // 
             this.cToolStripMenuItem1.Name = "cToolStripMenuItem1";
-            this.cToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.cToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
             this.cToolStripMenuItem1.Text = "目前比例";
             this.cToolStripMenuItem1.Click += new System.EventHandler(this.cToolStripMenuItem1_Click);
             // 

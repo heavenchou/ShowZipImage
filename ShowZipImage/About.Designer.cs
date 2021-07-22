@@ -60,7 +60,7 @@ namespace CBShowImage
             this.lbVer.Name = "lbVer";
             this.lbVer.Size = new System.Drawing.Size(94, 22);
             this.lbVer.TabIndex = 1;
-            this.lbVer.Text = "版本：v0.1";
+            this.lbVer.Text = "版本：v0.2";
             // 
             // lbDate
             // 
@@ -71,7 +71,7 @@ namespace CBShowImage
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(155, 22);
             this.lbDate.TabIndex = 2;
-            this.lbDate.Text = "日期：2021-05-31";
+            this.lbDate.Text = "日期：2021-07-23";
             // 
             // label5
             // 
@@ -141,7 +141,7 @@ namespace CBShowImage
             this.btOK.Location = new System.Drawing.Point(188, 385);
             this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(75, 41);
-            this.btOK.TabIndex = 9;
+            this.btOK.TabIndex = 0;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
             this.btOK.Click += new System.EventHandler(this.btOK_Click);
