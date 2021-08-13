@@ -16,8 +16,8 @@ namespace CBShowImage
     public partial class MainForm : Form
     {
         string ProgramName = "神秀圖";
-        string VerString = "v0.2";
-        string DateString = "2021-07-23";
+        string VerString = "v0.3";
+        string DateString = "2021-08-13";
         AboutForm aboutForm = new AboutForm();	// 宣告子視窗
         CZipImageFile ZipImageFile = new CZipImageFile();
         CImageDir ImageDir = new CImageDir();
@@ -580,5 +580,12 @@ namespace CBShowImage
             e.ItemHeight = (int)szItemSize.Height;
         }
 
+        private void cbCopyFileName_Click(object sender, EventArgs e)
+        {
+            int index = lbImageFileName.SelectedIndex;
+            if(index == -1) return;
+            string sFile = lbImageFileName.Items[index].ToString();
+            Clipboard.SetDataObject(sFile);
+        }
     }
 }

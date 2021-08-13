@@ -58,9 +58,9 @@ namespace CBShowImage
             this.lbVer.Location = new System.Drawing.Point(14, 82);
             this.lbVer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbVer.Name = "lbVer";
-            this.lbVer.Size = new System.Drawing.Size(94, 22);
+            this.lbVer.Size = new System.Drawing.Size(189, 22);
             this.lbVer.TabIndex = 1;
-            this.lbVer.Text = "版本：v0.2";
+            this.lbVer.Text = "版本：(由 main.cs 決定)";
             // 
             // lbDate
             // 
@@ -69,9 +69,9 @@ namespace CBShowImage
             this.lbDate.Location = new System.Drawing.Point(14, 107);
             this.lbDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(155, 22);
+            this.lbDate.Size = new System.Drawing.Size(189, 22);
             this.lbDate.TabIndex = 2;
-            this.lbDate.Text = "日期：2021-07-23";
+            this.lbDate.Text = "日期：(由 main.cs 決定)";
             // 
             // label5
             // 

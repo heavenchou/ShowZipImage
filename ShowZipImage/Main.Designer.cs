@@ -64,6 +64,7 @@ namespace CBShowImage
             this.panelCenter = new System.Windows.Forms.Panel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cbCopyFileName = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -231,21 +232,21 @@ namespace CBShowImage
             this.aToolStripMenuItem1.Checked = true;
             this.aToolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.aToolStripMenuItem1.Name = "aToolStripMenuItem1";
-            this.aToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.aToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.aToolStripMenuItem1.Text = "原始大小";
             this.aToolStripMenuItem1.Click += new System.EventHandler(this.aToolStripMenuItem1_Click);
             // 
             // bToolStripMenuItem1
             // 
             this.bToolStripMenuItem1.Name = "bToolStripMenuItem1";
-            this.bToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.bToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.bToolStripMenuItem1.Text = "適當全圖";
             this.bToolStripMenuItem1.Click += new System.EventHandler(this.bToolStripMenuItem1_Click);
             // 
             // cToolStripMenuItem1
             // 
             this.cToolStripMenuItem1.Name = "cToolStripMenuItem1";
-            this.cToolStripMenuItem1.Size = new System.Drawing.Size(152, 26);
+            this.cToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.cToolStripMenuItem1.Text = "目前比例";
             this.cToolStripMenuItem1.Click += new System.EventHandler(this.cToolStripMenuItem1_Click);
             // 
@@ -315,9 +316,9 @@ namespace CBShowImage
             // 
             this.panel2.Controls.Add(this.tbFilter);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(79, 0);
+            this.panel2.Location = new System.Drawing.Point(121, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(211, 41);
+            this.panel2.Size = new System.Drawing.Size(169, 41);
             this.panel2.TabIndex = 4;
             // 
             // tbFilter
@@ -325,39 +326,41 @@ namespace CBShowImage
             this.tbFilter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tbFilter.Location = new System.Drawing.Point(0, 7);
             this.tbFilter.Name = "tbFilter";
-            this.tbFilter.Size = new System.Drawing.Size(211, 34);
+            this.tbFilter.Size = new System.Drawing.Size(169, 34);
             this.tbFilter.TabIndex = 3;
             this.toolTip1.SetToolTip(this.tbFilter, "過濾檔名");
             this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbCopyFileName);
             this.panel1.Controls.Add(this.btUpDir);
             this.panel1.Controls.Add(this.btClearFilterText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(79, 47);
+            this.panel1.Size = new System.Drawing.Size(121, 47);
             this.panel1.TabIndex = 3;
             // 
             // btUpDir
             // 
+            this.btUpDir.Image = ((System.Drawing.Image)(resources.GetObject("btUpDir.Image")));
             this.btUpDir.Location = new System.Drawing.Point(3, 7);
             this.btUpDir.Name = "btUpDir";
-            this.btUpDir.Size = new System.Drawing.Size(32, 34);
+            this.btUpDir.Size = new System.Drawing.Size(33, 35);
             this.btUpDir.TabIndex = 1;
-            this.btUpDir.Text = "..";
             this.toolTip1.SetToolTip(this.btUpDir, "回上層目錄");
             this.btUpDir.UseVisualStyleBackColor = true;
             this.btUpDir.Click += new System.EventHandler(this.btUpDir_Click);
             // 
             // btClearFilterText
             // 
-            this.btClearFilterText.Location = new System.Drawing.Point(41, 6);
+            this.btClearFilterText.AutoSize = true;
+            this.btClearFilterText.Image = ((System.Drawing.Image)(resources.GetObject("btClearFilterText.Image")));
+            this.btClearFilterText.Location = new System.Drawing.Point(81, 7);
             this.btClearFilterText.Name = "btClearFilterText";
             this.btClearFilterText.Size = new System.Drawing.Size(33, 35);
-            this.btClearFilterText.TabIndex = 2;
-            this.btClearFilterText.Text = "X";
+            this.btClearFilterText.TabIndex = 3;
             this.toolTip1.SetToolTip(this.btClearFilterText, "清除右邊過濾輸入欄位");
             this.btClearFilterText.UseVisualStyleBackColor = true;
             this.btClearFilterText.Click += new System.EventHandler(this.btClearFilterText_Click);
@@ -418,6 +421,17 @@ namespace CBShowImage
             this.panelCenter.Size = new System.Drawing.Size(873, 362);
             this.panelCenter.TabIndex = 10;
             // 
+            // cbCopyFileName
+            // 
+            this.cbCopyFileName.Image = ((System.Drawing.Image)(resources.GetObject("cbCopyFileName.Image")));
+            this.cbCopyFileName.Location = new System.Drawing.Point(42, 7);
+            this.cbCopyFileName.Name = "cbCopyFileName";
+            this.cbCopyFileName.Size = new System.Drawing.Size(33, 35);
+            this.cbCopyFileName.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.cbCopyFileName, "複製選取欄位的文字");
+            this.cbCopyFileName.UseVisualStyleBackColor = true;
+            this.cbCopyFileName.Click += new System.EventHandler(this.cbCopyFileName_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -448,6 +462,7 @@ namespace CBShowImage
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -493,6 +508,7 @@ namespace CBShowImage
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton ddbAbout;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.Button cbCopyFileName;
     }
 }
 
